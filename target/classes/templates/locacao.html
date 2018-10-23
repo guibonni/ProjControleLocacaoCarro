@@ -11,7 +11,7 @@
 <body>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<strong>Incidentes</strong>
+			<strong>Locações</strong>
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
@@ -19,26 +19,24 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Título</th>
 							<th>Descrição</th>
-							<th>Data Abertura</th>
-							<th>Data Fechamento</th>
-							<th>Responsável</th>
+							<th>Carro</th>
+							<th>Funcionário</th>
+							<th>Data</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="incidente : ${incidentes}">
-							<td th:text="${incidente.id}"></td>
-							<td th:text="${incidente.titulo}"></td>
-							<td th:text="${incidente.descricao}"></td>
-							<td th:text="${#dates.format(incidente.dtAbertura, 'dd/MM/yyyy')}"></td>
-							<td th:text="${#dates.format(incidente.dtFechamento, 'dd/MM/yyyy')}"></td>
-							<td th:text="${incidente.responsavel.nome}"></td>
+						<tr th:each="locacao : ${locacoes}">
+							<td th:text="${locacao.id}"></td>
+							<td th:text="${locacao.descricao}"></td>
+							<td th:text="${locacao.carro.placa}"></td>
+							<td th:text="${locacao.funcionario.nome}"></td>
+							<td th:text="${#dates.format(locacao.data, 'dd/MM/yyyy')}"></td>
 							<td>
 								<div class="btn-group pull-right">
-							   		<a class="btn btn-sm btn-primary" th:href="@{/incidentes/edit/{id}(id=${incidente.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/incidentes/delete/{id}(id=${incidente.id})}">Excluir</a>
+							   		<a class="btn btn-sm btn-primary" th:href="@{/locacao/edit/{id}(id=${locacao.id})}" >Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/locacao/delete/{id}(id=${locacao.id})}">Excluir</a>
 							   </div>
 							</td>
 						</tr>
@@ -47,7 +45,7 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/incidentes/add/}" >Adicionar</a>
+			<a class="btn btn-sm btn-success" th:href="@{/locacao/add/}" >Adicionar</a>
 		</div>
 	</div>
 </body>

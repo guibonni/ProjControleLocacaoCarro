@@ -10,45 +10,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.faculdade.model.Funcionario;
+import com.faculdade.model.Estado;
 import com.faculdade.service.EstadoService;
-import com.faculdade.service.FuncionarioService;
 
 @Controller
-public class FuncionarioController {
+public class EstadoController {
 
 	@Autowired
-	private FuncionarioService service;
-	
-	@Autowired
-	private EstadoService serviceEstado;
+	private EstadoService service;
 
-	@GetMapping("/funcionario/")
+	@GetMapping("/estado/")
 	public ModelAndView findAll() {
 
-		ModelAndView mv = new ModelAndView("/funcionario");
-		mv.addObject("funcionarios", service.findAll());
+		ModelAndView mv = new ModelAndView("/estado");
+		mv.addObject("estados", service.findAll());
 
 		return mv;
 	}
 
-	@GetMapping("/funcionario/add")
-	public ModelAndView add(Funcionario funcionario) {
+	@GetMapping("/estado/add")
+	public ModelAndView add(Estado estado) {
 
-		ModelAndView mv = new ModelAndView("/funcionarioAdd");
-		mv.addObject("funcionario", funcionario);
-		mv.addObject("estados", serviceEstado.findAll());
+		ModelAndView mv = new ModelAndView("/estadoAdd");
+		mv.addObject("estado", estado);
 
 		return mv;
 	}
 
-	@GetMapping("/funcionario/edit/{id}")
+	@GetMapping("/estado/edit/{id}")
 	public ModelAndView edit(@PathVariable("id") int id) {
 
 		return add(service.findOne(id));
 	}
 
-	@GetMapping("/funcionario/delete/{id}")
+	@GetMapping("/estado/delete/{id}")
 	public ModelAndView delete(@PathVariable("id") int id) {
 
 		service.delete(id);
@@ -56,15 +51,16 @@ public class FuncionarioController {
 		return findAll();
 	}
 
-	@PostMapping("/funcionario/save")
-	public ModelAndView save(@Valid Funcionario funcionario, BindingResult result) {
+	@PostMapping("/estado/save")
+	public ModelAndView save(@Valid Estado estado, BindingResult result) {
 
 		if (result.hasErrors()) {
-			return add(funcionario);
+			return add(estado);
 		}
 
-		service.save(funcionario);
+		service.save(estado);
 
 		return findAll();
 	}
 }
+

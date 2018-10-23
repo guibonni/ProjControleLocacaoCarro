@@ -41,34 +41,37 @@
 							    <input type="text" class="form-control input-sm" th:field="*{telefone}" placeholder="Informe o telefone" maxlength="12"/>
 							</div>
 						</div>
-						<div class="form-group row">                                                          
+						<div class="form-group row">
 							<div class="col-md-4" th:classappend="${#fields.hasErrors('endereco')}? 'has-error'">
 							    <label>Endereço</label>
 							    <input type="text" class="form-control input-sm" th:field="*{endereco}" placeholder="Informe o endereço" maxlength="200"/>
 							</div>
 						</div>
 						<div class="form-group row">                                                          
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('modelo')}? 'has-error'">
-							    <label>Modelo</label>
-							    <input type="text" class="form-control input-sm" th:field="*{modelo}" placeholder="Informe o modelo" maxlength="50"/>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('cidade')}? 'has-error'">
+							    <label>Cidade</label>
+							    <input type="text" class="form-control input-sm" th:field="*{cidade}" placeholder="Informe o modelo" maxlength="100"/>
 							</div>
 						</div>
 						<div class="form-group row">                                                          
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('marca')}? 'has-error'">
-							    <label>Marca</label>
-							    <input type="text" class="form-control input-sm" th:field="*{marca}" placeholder="Informe a marca" maxlength="50"/>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('estado')}? 'has-error'">
+							    <label>Estado</label>
+							    <select id="estado" th:field="*{estado}" class="form-control input-sm">
+								    <option value="">Selecione o Estado</option>
+								    <option th:each="estado : ${estados}"  th:value="${estado.id}" th:text="${estado.nome}" selected="selected"></option>
+							    </select>
 							</div>
 						</div>
 						<div class="form-group row">                                                          
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('marca')}? 'has-error'">
-							    <label>Marca</label>
-							    <input type="text" class="form-control input-sm" th:field="*{marca}" placeholder="Informe a marca" maxlength="50"/>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('nomePai')}? 'has-error'">
+							    <label>Nome do Pai</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nomePai}" placeholder="Informe a marca" maxlength="150"/>
 							</div>
 						</div>
 						<div class="form-group row">                                                          
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('marca')}? 'has-error'">
-							    <label>Marca</label>
-							    <input type="text" class="form-control input-sm" th:field="*{marca}" placeholder="Informe a marca" maxlength="50"/>
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('nomeMae')}? 'has-error'">
+							    <label>Nome da Mãe</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nomeMae}" placeholder="Informe a marca" maxlength="150"/>
 							</div>
 						</div>
 					</fieldset>

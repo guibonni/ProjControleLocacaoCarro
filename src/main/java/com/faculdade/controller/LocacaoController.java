@@ -28,7 +28,7 @@ public class LocacaoController {
 	public ModelAndView findAll() {
 
 		ModelAndView mv = new ModelAndView("/locacao");
-		mv.addObject("locacao", service.findAll());
+		mv.addObject("locacoes", service.findAll());
 
 		return mv;
 	}
