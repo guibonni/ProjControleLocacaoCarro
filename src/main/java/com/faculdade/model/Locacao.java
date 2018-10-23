@@ -23,7 +23,7 @@ public class Locacao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private int id;
 	
 	@Column(nullable = false, length = 400)
 	@NotBlank(message = "Descrição é uma informação obrigatória.")
@@ -41,11 +41,11 @@ public class Locacao implements Serializable {
 	@NotNull(message = "Data é uma informação obrigatória.")
 	private Date data;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

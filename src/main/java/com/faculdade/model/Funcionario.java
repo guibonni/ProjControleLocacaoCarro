@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -37,8 +38,7 @@ public class Funcionario implements Serializable {
 	private String cidade;
 	
 	@ManyToOne
-	@Column(nullable = false, length = 2)
-	@NotBlank(message = "Estado é uma informação obrigatória.")
+	@NotNull
 	private Estado estado;
 	
 	@Column(nullable = true, length = 150)

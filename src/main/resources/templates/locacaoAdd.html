@@ -40,7 +40,7 @@
 								<label>Carro</label> 
 								<select id="carro" th:field="*{carro}" class="form-control input-sm">
 							    <option value="">Selecione o Carro</option>
-							    <option th:each="carro : ${carros}"  th:value="${carro.id}" th:text="${carro.modelo}/${carro.anoModelo} - ${carro.placa}" selected="selected"></option>
+							    <option th:each="carro : ${carros}"  th:value="${carro.id}" th:text="${carro.placa}" selected="selected"></option>
 						    </select>
 					    </div>
 						</div>

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity(name = "carro")
@@ -27,7 +29,7 @@ public class Carro implements Serializable {
 	private String cor;
 	
 	@Column(nullable = false)
-	@NotBlank(message = "O ano do modelo é uma informação obrigatória.")
+	@NotNull(message = "O ano do modelo é uma informação obrigatória.")
 	private int anoModelo;
 	
 	@Column(nullable = false, length = 50)
